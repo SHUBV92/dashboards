@@ -1,10 +1,12 @@
 import './App.css';
 import PositionsPanel from './components/PositionsPanel/PositionsPanel';
 import AccordionContainer from './containers/AccordionContainer/AccordionContainer';
+import NavBar from './containers/NavBar/NavBar';
 
 function App() {
   return (
     <div className='App'>
+      <NavBar />
       <div className='info-panel'>
         <AccordionContainer />
       </div>
