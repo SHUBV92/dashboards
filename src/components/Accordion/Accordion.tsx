@@ -9,7 +9,7 @@ interface AccordionProps {
 }
 
 const Accordion = ({ title, content }: AccordionProps) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => {
     setOpen(!open);
   };
