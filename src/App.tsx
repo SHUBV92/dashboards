@@ -1,26 +1,41 @@
+import { useState } from 'react';
 import './App.css';
-import PositionsPanel from './components/PositionsPanel/PositionsPanel';
-import AccordionContainer from './containers/AccordionContainer/AccordionContainer';
+
+import PrivateRoutesContainer from './containers/PrivateRoutesContainer/PrivateRoutesContainer';
 import NavBar from './containers/NavBar/NavBar';
+import useData from './hooks/useData';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+  Navigate,
+} from 'react-router-dom';
+import Dashboard from './containers/Dashboard/Dashboard';
+import Home from './containers/Home/Home';
+import Login from './containers/Login/Login';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [loading, data] = useData(
+    'https://jsonplaceholder.typicode.com/todos/1'
+  );
+
+  console.log('loading', loading);
+  console.log('data', data);
+
   return (
-    <div className='App'>
-      <NavBar />
-      <div className='info-panel'>
-        <AccordionContainer />
+    <Router>
+      <div className='App'>
+        <NavBar />
+        {isLoggedIn && <PrivateRoutesContainer isLoggedIn={isLoggedIn} />}
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/' element={<Home />} />
+        </Routes>
       </div>
-      <div className='tools-container'>
-        <div className='tools-2-container'>
-          <div className='allocation-info-panel'>Allocation Info Panel</div>
-          <div className='performance-panel'>Performance Panel</div>
-        </div>
-        <div className='positions'>
-          Positions Panel
-          <PositionsPanel />
-        </div>
-      </div>
-    </div>
+    </Router>
   );
 }
 
