@@ -1,0 +1,12 @@
+.accordion-container {
+  border: 2px solid lightgrey;
+  width: 100%;
+}
+
+.accordion-title {
+  background-color: lightgrey;
+}
+
+.accordion-icon {
+  padding-left: 1.5rem;
+}
