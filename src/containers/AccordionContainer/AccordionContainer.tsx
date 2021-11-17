@@ -7,7 +7,12 @@ const AccordionContainer = () => {
 
   return (
     <div>
-      <Accordion title={data} content={'It is a bigsss deal'} />
+      <Accordion title={'Movie'} content={'It is a bigsss deal'} />
+      <Accordion title={'Prem'} content={'It is a bigsss deal'} />
+      <Accordion
+        title={'Lagan'}
+        content={['It is a bigsss deal', 'Hello', 'Hi']}
+      />
     </div>
   );
 };

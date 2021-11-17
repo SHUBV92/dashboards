@@ -5,7 +5,7 @@ import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 interface AccordionProps {
   title: string;
-  content: string;
+  content: string | string[];
 }
 
 const Accordion = ({ title, content }: AccordionProps) => {
@@ -22,7 +22,19 @@ const Accordion = ({ title, content }: AccordionProps) => {
           <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
         </span>
       </div>
-      {open && <div className='accordion-content'>{content}</div>}
+      {open && (
+        <div className='accordion-content'>
+          {typeof content === 'object' ? (
+            content.map((item) => (
+              <ul>
+                <li>{item}</li>
+              </ul>
+            ))
+          ) : (
+            <h3>{content}</h3>
+          )}
+        </div>
+      )}
     </div>
   );
 };
