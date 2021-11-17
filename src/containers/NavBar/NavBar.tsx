@@ -20,7 +20,10 @@ const NavBar = () => {
           <Link to='/login'>Sign out</Link>
         </NavLinks>
         <CurrentUser>
-          <Col>Signed In as: {currentUser}</Col>
+          <Col>
+            Signed In as:{' '}
+            {currentUser.charAt(0).toUpperCase() + currentUser.slice(1)}
+          </Col>
         </CurrentUser>
       </NavContainer>
     </Row>
