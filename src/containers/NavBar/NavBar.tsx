@@ -1,4 +1,4 @@
-import { NavContainer, NavLinks } from './NavBar.styles';
+import { NavContainer, NavLinks, Row, Col, CurrentUser } from './NavBar.styles';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../store/rootReducer';
 import { useSelector } from 'react-redux';
@@ -9,17 +9,21 @@ const NavBar = () => {
   console.log('Current User from navbar', currentUser);
 
   return (
-    <NavContainer>
-      <div>
-        <h3>Dashboards</h3>
-      </div>
-      <NavLinks>
-        <Link to='/'>Home</Link>
-        <Link to='/dashboard'>Dashboard</Link>
-        <Link to='/login'>Sign out</Link>
-      </NavLinks>
-      <div>Signed In as: {currentUser} </div>
-    </NavContainer>
+    <Row>
+      <NavContainer>
+        <div>
+          <h3>Dashboards</h3>
+        </div>
+        <NavLinks>
+          <Link to='/'>Home</Link>
+          <Link to='/dashboard'>Dashboard</Link>
+          <Link to='/login'>Sign out</Link>
+        </NavLinks>
+        <CurrentUser>
+          <Col>Signed In as: {currentUser}</Col>
+        </CurrentUser>
+      </NavContainer>
+    </Row>
   );
 };
 
