@@ -1,58 +1,22 @@
 .App {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
 }
 
-.info-panel {
-  border: 1px solid;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 30vw;
-  padding-top: 5rem;
+.body {
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
-.allocation-info-panel {
-  height: 10rem;
-  padding: 1rem;
-  border: 1px solid;
-  width: 50%;
-}
-
-.performance-panel {
-  height: 10rem;
-  padding: 1rem;
-  border: 1px solid;
-  width: 50%;
-}
-
-.positions {
-  padding: 1rem;
-  border: 1px solid;
-}
-
-.tools-container {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-
-  @media only screen and (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.tools-2-container {
-  display: flex;
-  flex-direction: row;
-
-  @media only screen and (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-  }
+.footer {
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  background-color: black;
+  color: white;
 }
