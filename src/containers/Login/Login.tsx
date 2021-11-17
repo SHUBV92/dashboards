@@ -2,6 +2,7 @@ import { useState, SyntheticEvent } from 'react';
 import { LoginContainer } from './Login.styles';
 import { useDispatch } from 'react-redux';
 import { updateCurrentUser } from '../../store/actions';
+import history from '../../utils/history';
 
 interface LoginProps {}
 
@@ -10,16 +11,15 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handleChange = (event: any) => {
-    console.log('Handle Change', event.target.value);
     event.preventDefault();
     event.stopPropagation();
     setName(event.target.value);
   };
 
   const handleSubmit = (event: any) => {
-    console.log('Login Name', name);
     dispatch(updateCurrentUser(name));
     event.preventDefault();
+    return history.push('/dashboard');
   };
 
   return (
