@@ -19,3 +19,7 @@
 .students tr:hover {
   background-color: #ddd;
 }
+
+.position-search {
+  width: 100%;
+}
