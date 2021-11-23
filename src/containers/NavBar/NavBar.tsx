@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 const NavBar = () => {
   const currentUser = useSelector((state: RootState) => state.currentUser.name);
 
-  console.log('Current User from navbar', currentUser);
-
   return (
     <Row>
       <NavContainer>

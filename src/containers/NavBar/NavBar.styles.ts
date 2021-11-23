@@ -37,6 +37,7 @@ export const NavContainer = styled.div`
     padding: 1rem;
     justify-content: space-between;
     color: white;
+    box-shadow: 5px 5px lightgray;
 `
 
 export const NavLinks = styled.div`
@@ -47,6 +48,8 @@ export const NavLinks = styled.div`
     a {
         color: white;
         padding: 1rem;
+        text-decoration: none;
+
     }
 `
 
