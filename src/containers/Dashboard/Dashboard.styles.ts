@@ -1,64 +1,5 @@
 import styled from 'styled-components'
 
-
-export const DashBoardContainer = styled.div`
-  width: 80vw;
-  height: 80vh;
-  margin-top: 5rem;
-`
-
-export const InfoPanel = styled.div`
-  border: 1px solid;
-  top: 0;
-  left: 0;
-  height: 50vh;
-  width: 70%;
-
-`
-
-export const AllocationInfoPanel = styled.div`
-  height: 10rem;
-  padding: 1rem;
-  border: 1px solid;
-  width: 50%;
-`
-export const PerformancePanel = styled.div`
-  height: 10rem;
-  padding: 1rem;
-  border: 1px solid;
-  width: 50%;
-`
-
-// export const ToolsContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 100vw;
-
-//   @media only screen and (max-width: 600px) {
-//     display: flex;
-//     flex-direction: column;
-// }
-// `
-// export const ChildContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-
-//   @media only screen and (max-width: 600px) {
-//     display: flex;
-//     flex-direction: column;
-//   }
-// `
-
-
-// export const PositionsPanel = styled.div``
-
-
-export const Positions = styled.div`
-  padding: 1rem;
-  border: 1px solid;
-`
-
-
 interface ColProps {
   size?: number;
   collapse?: string;
@@ -86,3 +27,51 @@ export const Col = styled.div<ColProps>`
     display: none;
   `)}
 `;
+
+
+export const DashBoardContainer = styled.div`
+  width: 95vw;
+  height: 85vh;
+  margin-top: 5rem;
+
+`
+
+export const InfoPanel = styled.div`
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 95%;
+  border: 1px solid #F0F0F0;
+`
+
+export const AllocationInfoPanel = styled.div`
+  height: 20rem;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  padding-top:0.8rem;
+`
+export const PerformancePanel = styled.div`
+  height: 20rem;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  padding-top:0.8rem;
+
+`
+
+export const Positions = styled.div`
+  padding-top: 2rem;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  /* scroll-behaviour: smooth; */
+  /* overflow: scrol; */
+ white-space: nowrap;
+
+
+`
+
+
+
+
