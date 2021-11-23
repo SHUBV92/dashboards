@@ -6,24 +6,18 @@ interface TableProps {
 }
 const Table = ({ columns, data }: TableProps) => {
   const [filterInput, setFilterInput] = useState('');
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    setFilter,
-  } = useTable(
-    {
-      columns,
-      data,
-    },
-    useFilters
-  );
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable(
+      {
+        columns,
+        data,
+      },
+      useFilters
+    );
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setFilter('show.name', value);
+    // setFilter('show.name', value);
     setFilterInput(value);
   };
 

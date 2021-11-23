@@ -33,12 +33,16 @@ const Accordion = ({
       {open && (
         <div className='accordion-content'>
           {typeof content === 'object' ? (
-            content.map((item) => (
-              <ul onClick={() => handleClick(item)}>
-                {avatar && <Avatar style={{ width: '3rem', height: '3rem' }} />}
-                <li>{item}</li>
-              </ul>
-            ))
+            <ul>
+              {content.map((item) => (
+                <li onClick={() => handleClick(item)}>
+                  {avatar && (
+                    <Avatar style={{ width: '3rem', height: '3rem' }} />
+                  )}
+                  {item}
+                </li>
+              ))}
+            </ul>
           ) : (
             <h3>{content}</h3>
           )}

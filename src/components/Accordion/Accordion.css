@@ -21,12 +21,18 @@
   display: flex;
   width: 90%;
   padding-left: 7px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
 .accordion-content li {
   display: flex;
   justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.accordion-content li:hover {
+  background-color: #f0f0f0;
 }
