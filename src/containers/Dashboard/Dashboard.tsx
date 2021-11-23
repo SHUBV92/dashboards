@@ -13,6 +13,7 @@ import {
   Col,
   Row,
 } from './Dashboard.styles';
+import PlotlyChart from '../../components/PlotlyChart/PlotlyChart';
 
 const Dashboard = () => {
   return (
@@ -34,7 +35,10 @@ const Dashboard = () => {
               </AllocationInfoPanel>
             </Col>
             <Col size={1}>
-              <PerformancePanel>Performance Panel</PerformancePanel>
+              <PerformancePanel>
+                Performance Panel
+                <PlotlyChart />
+              </PerformancePanel>
             </Col>
           </Row>
           <Positions>
