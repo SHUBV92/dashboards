@@ -1,12 +1,32 @@
 .accordion-container {
-  border: 2px solid lightgrey;
+  border: 0px solid #f0f0f0;
   width: 100%;
+  border-radius: 2px;
 }
 
 .accordion-title {
-  background-color: lightgrey;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2;
+  padding: 0.5rem;
+  background-color: #f0f0f0;
+  color: purple;
 }
 
 .accordion-icon {
-  padding-left: 1.5rem;
+}
+
+.accordion-content ul {
+  list-style: none;
+  display: flex;
+  width: 90%;
+  padding-left: 7px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content li {
+  display: flex;
+  justify-content: flex-start;
 }
