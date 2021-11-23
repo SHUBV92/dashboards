@@ -16,9 +16,6 @@ function App() {
     'https://jsonplaceholder.typicode.com/todos/1'
   );
 
-  console.log('loading', loading);
-  console.log('data', data);
-
   return (
     <Router>
       <div className='App'>
