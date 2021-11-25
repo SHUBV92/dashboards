@@ -2,7 +2,7 @@
 - Don't think such a complex Table is required for now. Would recommend starting simple and using normal html tables for now.
 - SET UP PRETTIER!!!
 
-### Overall: Looking much better with React, especially hooks and Redux. CSS may need some work but I think you're just missing one critical way of thinking that hasn't clicked yet. I can explain later! Well done (FINALLY) for keeping file names consistent. Always keep it simple and get the core functionality working before adding complexity.
+## Overall: Looking much better with React, especially hooks and Redux. CSS may need some work but I think you're just missing one critical way of thinking that hasn't clicked yet. I can explain later! Well done (FINALLY) for keeping file names consistent. Always keep it simple and get the core functionality working before adding complexity.
 
 [Login.tsx](./containers/Login/Login.tsx)
 
@@ -20,7 +20,7 @@
 
 - Line 32: Is this suppose to be 'action.payload.currentUser'?
 
-[history.ts]
+[history.ts](./utils/history.ts)
 
 - what is this for?
 
@@ -36,7 +36,7 @@
 
 - Line 48: Good use of destructuring in map
 
-### WELL DONE!!! :D
+## WELL DONE!!! :D
 
 [Dashboard.styles.ts](./containers/Dashboard/Dashboard.styles.ts)
 
@@ -48,7 +48,7 @@
 
 - Line 12: What's gird?
 
-### MUAHAHAHHAHAHA
+## MUAHAHAHHAHAHA
 
 [PositionsPanel.tsx](./components/PositionsPanel/PositionsPanel.tsx)
 
