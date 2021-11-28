@@ -14,8 +14,10 @@ export const updateCurrentUser = (currentUser: any) => {
     }
 }
 
-export const updateLoggedIn = () => {
+export const updateLoggedIn = (isLoggedIn: any) => {
     return{ 
         type: IS_LOGGED_IN,
+        payload: isLoggedIn
     }
 }
+

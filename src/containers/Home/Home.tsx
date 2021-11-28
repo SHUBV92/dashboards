@@ -1,7 +1,12 @@
+import { useContext } from 'react';
+import { ApplicationContext } from '../../App';
+
 const Home = () => {
+  const isLoggedIn = useContext(ApplicationContext);
   return (
     <div>
-      <h3>Professional Dashboards</h3>
+      {isLoggedIn ? 'logged in' : 'not logged in'}
+      {/* <h3>Professional Dashboards</h3> */}
     </div>
   );
 };

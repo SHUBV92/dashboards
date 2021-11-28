@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import { useSelector } from 'react-redux';
 import { LoginContainer } from './Login.styles';
 import { useDispatch } from 'react-redux';
 import { updateCurrentUser, updateLoggedIn } from '../../store/actions';
@@ -16,7 +15,6 @@ const Login = () => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    console.log('useEffect');
     if (inputRef.current !== null) {
       inputRef.current.focus();
     }
@@ -30,20 +28,15 @@ const Login = () => {
 
   const handleChange = (event: any) => {
     event.preventDefault();
-    event.stopPropagation();
     setName(event.target.value);
   };
 
   const handleSubmit = (event: any) => {
     if (isRegistered().length === 0) return;
 
-    dispatch(updateCurrentUser(name));
     event.preventDefault();
-
-    dispatch(updateLoggedIn());
-
-    console.log('is user registerd', isRegistered());
-
+    dispatch(updateCurrentUser(name));
+    dispatch(updateLoggedIn(true));
     return history.push('/dashboard');
   };
 

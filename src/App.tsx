@@ -12,35 +12,48 @@ import Login from './containers/Login/Login';
 import Footer from './containers/Footer/Footer';
 import { API_KEY } from './api/coinapi/key';
 import AccordionContent from './containers/AccordionContent/AccordionContent';
+import { useSelector } from 'react-redux';
+import { RootState } from './store/rootReducer';
+export const ApplicationContext = createContext(false);
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [loading, data] = useData('https://rest.coinapi.io/v1/assets', {
     method: 'GET',
     headers: { 'X-CoinAPI-Key': API_KEY },
   });
 
-  console.log('App - data', data);
+  const isLoggedIn = useSelector((state: RootState) => state.loggedIn.loggedIn);
+
+  console.log('index.ts', isLoggedIn);
 
   return (
-    <Router>
-      <div className='App'>
-        <NavBar />
-        <div className='body'>
-          {isLoggedIn && <PrivateRoutesContainer isLoggedIn={isLoggedIn} />}
-          <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/' element={<Home />} />
-            <Route path='/:path_variable' element={<AccordionContent />} />
-          </Routes>
+    <ApplicationContext.Provider value={isLoggedIn}>
+      <Router>
+        <div className='App'>
+          <NavBar />
+          <div className='body'>
+            {isLoggedIn && <PrivateRoutesContainer isLoggedIn={isLoggedIn} />}
+            <Routes>
+              <Route path='/login' element={<Login />} />
+            </Routes>
+
+            {isLoggedIn && (
+              <Routes>
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='/' element={<Home />} />
+                <Route
+                  path='/accordion/:path_variable'
+                  element={<AccordionContent />}
+                />
+              </Routes>
+            )}
+          </div>
+          <div className='footer'>
+            <Footer />
+          </div>
         </div>
-        <div className='footer'>
-          <Footer />
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </ApplicationContext.Provider>
   );
 }
 

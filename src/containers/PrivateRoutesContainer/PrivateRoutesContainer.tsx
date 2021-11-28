@@ -6,7 +6,7 @@ interface PrivateRoutineProps {
 }
 
 const PrivateRoutesContainer = ({ isLoggedIn }: PrivateRoutineProps) => {
-  return <div>{isLoggedIn && <h3>PrivateRoute</h3>}</div>;
+  return <div>{isLoggedIn && <h3>PrivateRoutes</h3>}</div>;
 };
 
 export default PrivateRoutesContainer;

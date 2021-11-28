@@ -45,11 +45,10 @@ export const loggedInReducer = ( state = LOGGED_IN_STATE, action: any) => {
         case IS_LOGGED_IN: 
         return {
             ...state, 
-            loggedIn: true,
+            loggedIn: action.payload
         }
 
         default: return state;
     }
 }
-
 
