@@ -2,9 +2,22 @@ import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import './PositionsPanel';
 import Table from '../Table/Table';
+import { Styles } from './PositionsPanel.styles';
+import useData from '../../hooks/useData';
+import { API_KEY } from '../../api/coinapi/key';
 
 const PositionsPanel = () => {
   const [data, setData] = useState([]);
+  // const [loading, data] = useData('https://rest.coinapi.io/v1/assets', {
+  //   method: 'GET',
+  //   headers: { 'X-CoinAPI-Key': API_KEY },
+  // });
+
+  // console.log('positions panel', data);
+
+  // const [loading, data] = useData('https://api.tvmaze.com/search/shows?q=snow');
+
+  console.log('positions panel', data);
 
   useEffect(() => {
     (async () => {
@@ -12,6 +25,15 @@ const PositionsPanel = () => {
       setData(result.data);
     })();
   }, []);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await useData('https://rest.coinapi.io/v1/assets', {
+  //       method: 'GET',
+  //       headers: { 'X-CoinAPI-Key': API_K§EY },
+  //     });
+  //   })();
+  // }, []);
 
   const Genres = ({ values }: any) => {
     return (
@@ -30,7 +52,7 @@ const PositionsPanel = () => {
   const columns = useMemo(
     () => [
       {
-        Header: 'TV Show',
+        Header: 'Crypto Currency',
 
         columns: [
           {
@@ -86,8 +108,13 @@ const PositionsPanel = () => {
 
   return (
     <div className='positions'>
-      <input className='position-search' placeholder='search' type='text' />
-      <Table columns={columns} data={data} />
+      <Styles>
+        {/* {loading ? (
+          <h3>Loading....</h3>
+        ) : ( */}
+        <Table columns={columns} data={data} />
+        {/* )} */}
+      </Styles>
     </div>
   );
 };
