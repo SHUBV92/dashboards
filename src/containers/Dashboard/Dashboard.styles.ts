@@ -33,6 +33,13 @@ export const DashBoardContainer = styled.div`
   width: 95vw;
   height: 85vh;
   margin-top: 5rem;
+  padding-left: 5rem;
+  padding-right: 7rem;
+  @media only screen and (max-width: 768px) {
+    width: 90vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
 `
 
@@ -55,7 +62,6 @@ export const PerformancePanel = styled.div`
   width: 100%;
   border: 1px solid #f0f0f0;
   padding-top:0.8rem;
-
 `
 
 export const Positions = styled.div`
@@ -65,11 +71,7 @@ export const Positions = styled.div`
   align-items: center;
   border: 1px solid #f0f0f0;
   width: 100%;
-  /* scroll-behaviour: smooth; */
-  /* overflow: scrol; */
- white-space: nowrap;
-
-
+  white-space: nowrap;
 `
 
 
