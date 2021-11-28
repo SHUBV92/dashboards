@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './Accordion.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +10,7 @@ interface AccordionProps {
   content: string | string[];
   avatar: boolean;
   handleOpen: (id: any) => void;
-  open: boolean;
+  isOpen: boolean;
 }
 
 const Accordion = ({
@@ -18,19 +19,23 @@ const Accordion = ({
   content,
   avatar,
   handleOpen,
-  open,
+  isOpen,
 }: AccordionProps) => {
-  const handleClick = (path: any) => console.log(`${path} clicked`);
+  const navigate = useNavigate();
+  const handleClick = (path: any) => {
+    console.log(`${path} clicked`);
+    navigate(`/${path}`);
+  };
 
   return (
     <div className='accordion-container'>
       <div onClick={() => handleOpen(id)} className='accordion-title'>
         {title}
         <span className='accordion-icon'>
-          <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
+          <FontAwesomeIcon icon={isOpen ? faCaretUp : faCaretDown} />
         </span>
       </div>
-      {open && (
+      {isOpen && (
         <div className='accordion-content'>
           {typeof content === 'object' ? (
             <ul>
