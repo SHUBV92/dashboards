@@ -12,7 +12,6 @@ const AccordionContainer = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState(0);
   const [accordionItem, setAccordionItem] = useState(accordionItems);
-  // const data = useSelector((state: RootState) => state.data.data);
 
   const handleOpen = (id: any) => {
     setOpen(!open);

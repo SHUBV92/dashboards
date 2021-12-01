@@ -1,8 +1,9 @@
 import { useTable, useFilters } from 'react-table';
-import React, { useState, SyntheticEvent } from 'react';
+import React, { useState } from 'react';
 interface TableProps {
   columns: any;
-  data: Array<Object>;
+  // data: Array<Object>;
+  data: any;
 }
 const Table = ({ columns, data }: TableProps) => {
   const [filterInput, setFilterInput] = useState('');

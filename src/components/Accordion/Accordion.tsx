@@ -24,7 +24,7 @@ const Accordion = ({
   const navigate = useNavigate();
   const handleClick = (path: any) => {
     console.log(`${path} clicked`);
-    navigate(`/${path}`);
+    navigate(`/accordion/${path}`);
   };
 
   return (

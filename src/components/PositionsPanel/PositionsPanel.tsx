@@ -1,23 +1,20 @@
+import React from 'react';
 import { useState, useEffect, useMemo } from 'react';
+import useData from '../../hooks/useData';
+
 import axios from 'axios';
+
 import './PositionsPanel';
 import Table from '../Table/Table';
 import { Styles } from './PositionsPanel.styles';
-import useData from '../../hooks/useData';
-import { API_KEY } from '../../api/coinapi/key';
 
 const PositionsPanel = () => {
   const [data, setData] = useState([]);
+
   // const [loading, data] = useData('https://rest.coinapi.io/v1/assets', {
   //   method: 'GET',
-  //   headers: { 'X-CoinAPI-Key': API_KEY },
+  //   headers: { 'X-CoinAPI-Key': process.env.REACT_APP_COINAPI_KEY },
   // });
-
-  // console.log('positions panel', data);
-
-  // const [loading, data] = useData('https://api.tvmaze.com/search/shows?q=snow');
-
-  console.log('positions panel', data);
 
   useEffect(() => {
     (async () => {
@@ -27,13 +24,21 @@ const PositionsPanel = () => {
   }, []);
 
   // useEffect(() => {
-  //   (async () => {
-  //     const result = await useData('https://rest.coinapi.io/v1/assets', {
+  //   const fetchData = async () => {
+  //     const response = await axios('https://rest.coinapi.io/v1/assets', {
   //       method: 'GET',
-  //       headers: { 'X-CoinAPI-Key': API_K§EY },
+  //       headers: { 'X-CoinAPI-Key': process.env.REACT_APP_COINAPI_KEY },
   //     });
-  //   })();
+
+  //     // const response = await fetch(url, {...headers});
+  //     const data = await response.data;
+  //     console.log('hook data', typeof data);
+  //     setData(data);
+  //   };
+  //   fetchData();
   // }, []);
+
+  console.log('positions', data);
 
   const Genres = ({ values }: any) => {
     return (
@@ -48,6 +53,63 @@ const PositionsPanel = () => {
       </>
     );
   };
+
+  // const columns = useMemo(
+  //   () => [
+  //     {
+  //       Header: 'Crypto Currency',
+
+  //       columns: [
+  //         {
+  //           Header: 'Name',
+  //           accessor: 'asset_id',
+  //         },
+  //         {
+  //           Header: 'Name',
+  //           accessor: 'name',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       // Second group - Details
+  //       Header: 'Deatils',
+
+  //       // Second group columns -
+  //       columns: [
+  //         {
+  //           Header: 'Language',
+  //           accessor: 'data_quote_start',
+  //         },
+  //         {
+  //           Header: 'Gener(s)',
+  //           accessor: 'data_quote_start',
+  //           // Cell method will provide the value of the cell; we can create a custom element for the Cell
+  //           // Cell: ({ cell: { value } }: any) => <Genres values={value} />,
+  //         },
+  //         // {
+  //         //   Header: 'Runtime',
+  //         //   accessor: 'show.runtime',
+  //         //   // Cell method will provide the value of the cell; we can create a custom element for the Cell
+  //         //   Cell: ({ cell: { value } }) => {
+  //         //     const hour = Math.floor(value / 60);
+  //         //     const min = Math.floor(value % 60);
+  //         //     return (
+  //         //       <>
+  //         //         {hour > 0 ? `${hour} hr${hour > 1 ? 's' : ''} ` : ''}
+  //         //         {min > 0 ? `${min} min${min > 1 ? 's' : ''}` : ''}
+  //         //       </>
+  //         //     );
+  //         //   },
+  //         // },
+  //         {
+  //           Header: 'Status',
+  //           accessor: 'data_quote_start',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   []
+  // );
 
   const columns = useMemo(
     () => [
@@ -109,11 +171,14 @@ const PositionsPanel = () => {
   return (
     <div className='positions'>
       <Styles>
-        {/* {loading ? (
+        {data.length === 0 ? (
           <h3>Loading....</h3>
-        ) : ( */}
-        <Table columns={columns} data={data} />
-        {/* )} */}
+        ) : (
+          // data.map((info: any) => {
+          // <h1>Table</h1>
+          <Table columns={columns} data={data} />
+          // })
+        )}
       </Styles>
     </div>
   );

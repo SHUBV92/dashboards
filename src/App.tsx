@@ -10,21 +10,30 @@ import Dashboard from './containers/Dashboard/Dashboard';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Footer from './containers/Footer/Footer';
-import { API_KEY } from './api/coinapi/key';
 import AccordionContent from './containers/AccordionContent/AccordionContent';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/rootReducer';
+import store from './store/store';
+
 export const ApplicationContext = createContext(false);
 
 function App() {
   const [loading, data] = useData('https://rest.coinapi.io/v1/assets', {
     method: 'GET',
-    headers: { 'X-CoinAPI-Key': API_KEY },
+    headers: { 'X-CoinAPI-Key': process.env.REACT_APP_COINAPI_KEY },
+  });
+
+  store.subscribe(() => {
+    const { loggedIn } = store.getState();
+
+    localStorage.setItem('isloggedIn', `${loggedIn}`);
   });
 
   const isLoggedIn = useSelector((state: RootState) => state.loggedIn.loggedIn);
 
-  console.log('index.ts', isLoggedIn);
+  const currentUser = useSelector((state: RootState) => state.currentUser);
+
+  // const isLoggedIn = localStorage.getItem('isLoggedIn');
 
   return (
     <ApplicationContext.Provider value={isLoggedIn}>
@@ -35,12 +44,12 @@ function App() {
             {isLoggedIn && <PrivateRoutesContainer isLoggedIn={isLoggedIn} />}
             <Routes>
               <Route path='/login' element={<Login />} />
+              <Route path='/' element={<Home />} />
             </Routes>
 
             {isLoggedIn && (
               <Routes>
                 <Route path='/dashboard' element={<Dashboard />} />
-                <Route path='/' element={<Home />} />
                 <Route
                   path='/accordion/:path_variable'
                   element={<AccordionContent />}

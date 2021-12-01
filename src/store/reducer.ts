@@ -1,4 +1,4 @@
-import { DATA, CURRENT_USER, IS_LOGGED_IN } from './constants'
+import { DATA, CURRENT_USER_STATE, IS_LOGGED_IN } from './constants'
 
 interface DataState {
     data: string;
@@ -30,7 +30,7 @@ export const dataReducer = (state = INITIAL_STATE, action: any) => {
 
 export const currentUserReducer = (state = CURRENT_STATE, action: any) => {
     switch(action.type){
-        case CURRENT_USER: 
+        case CURRENT_USER_STATE: 
         return {
             ...state, 
             name: action.payload

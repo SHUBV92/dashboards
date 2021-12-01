@@ -13,10 +13,10 @@ export const Row = styled.div`
 
 const media:any = {
   xs: (styles:string) => `
-        @media only screen and (max-width: 480px){
-            ${styles}
-        }
-        `,
+    @media only screen and (max-width: 480px){
+        ${styles}
+    }
+    `,
 };
 
 export const Col = styled.div<ColProps>`
@@ -56,6 +56,13 @@ export const AllocationInfoPanel = styled.div`
   width: 100%;
   border: 1px solid #f0f0f0;
   padding-top:0.8rem;
+
+  .color-wheel {
+    background: conic-gradient(red, orange, yellow, green, blue);
+    border-radius: 100%;
+    height: 50%;
+    width: 50%;
+  }
 `
 export const PerformancePanel = styled.div`
   height: 20rem;

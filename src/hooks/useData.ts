@@ -9,7 +9,9 @@ const useData = (url:string, headers?: object) => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios(url, {...headers});
-            const data = await response.data   
+            // const response = await fetch(url, {...headers});
+            const data = await response.data
+            console.log('hook data', typeof data)
             setData(data)
             setLoading(false)
         }

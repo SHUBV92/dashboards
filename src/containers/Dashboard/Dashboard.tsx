@@ -9,7 +9,6 @@ import {
   AllocationInfoPanel,
   PerformancePanel,
   Positions,
-  //   Gird,
   Col,
   Row,
 } from './Dashboard.styles';
@@ -31,7 +30,8 @@ const Dashboard = () => {
             <Col size={1}>
               <AllocationInfoPanel>
                 Allocation Info sPanel
-                <Pie percentage='9' colour='pink' label='Asset Allocation' />
+                <div className='color-wheel'>shubs</div>
+                {/* <Pie percentage='9' colour='pink' label='Asset Allocation' /> */}
               </AllocationInfoPanel>
             </Col>
             <Col size={1}>
