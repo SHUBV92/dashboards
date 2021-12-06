@@ -18,11 +18,6 @@ import store from './store/store';
 export const ApplicationContext = createContext(false);
 
 function App() {
-  const [loading, data] = useData('https://rest.coinapi.io/v1/assets', {
-    method: 'GET',
-    headers: { 'X-CoinAPI-Key': process.env.REACT_APP_COINAPI_KEY },
-  });
-
   store.subscribe(() => {
     const { loggedIn } = store.getState();
 

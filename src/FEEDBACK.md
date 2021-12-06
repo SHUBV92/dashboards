@@ -6,33 +6,33 @@
 
 [Login.tsx](./containers/Login/Login.tsx)
 
-- Line 15: Why is stopPropagation() needed here?
-- Line 21: Always keep event.preventDefault() at the top!
-- Line 22: Don't think 'return' is needed.
+- [x] Line 15: Why is stopPropagation() needed here?
+- [x] Line 21: Always keep event.preventDefault() at the top!
+- [0] Line 22: Don't think 'return' is needed.
 
 [actions.ts](./store/actions.ts)
 
-- can get rid of the return to clean it up
+- [0] can get rid of the return to clean it up
 
 [reducer.ts](./store/reducer.ts)
 
-- Line 11: Rename this to CURRENT_USER_STATE. It's quite confusing otherwise.
+- [x] Line 11: Rename this to CURRENT_USER_STATE. It's quite confusing otherwise.
 
-- Line 32: Is this suppose to be 'action.payload.currentUser'?
+- [0] Line 32: Is this suppose to be 'action.payload.currentUser'?
 
 [history.ts](./utils/history.ts)
 
-- what is this for?
+- [x] what is this for?
 
 [AccordionContainer.tsx](./containers/AccordionContainer/AccordionContainer.tsx)
 
-- Line 12: try to find better names to not have instances like: 'state.data.data'
+- [] Line 12: try to find better names to not have instances like: 'state.data.data'
 
-- 'accords' State should never hold data like this. It should only hold a unique id that will then be used to find the actual object.
-- You don't need the 'open' key in every accordian as there will only always be one open and the state will always have one value. Can explain this properly later! You aren't using it anyways within the map.
-- You don't need to pass down the handleOpen function to every accordian either. Since you aren't using it anyways within the map
+- [Explain] 'accords' State should never hold data like this. It should only hold a unique id that will then be used to find the actual object.
+- [Explain] You don't need the 'open' key in every accordian as there will only always be one open and the state will always have one value. Can explain this properly later! You aren't using it anyways within the map.
+- [Explain] You don't need to pass down the handleOpen function to every accordian either. Since you aren't using it anyways within the map
 
-- Line 25: Why is handleOpen wrapped in an object here?
+- [Explain] Line 25: Why is handleOpen wrapped in an object here?
 
 - Line 48: Good use of destructuring in map
 
@@ -40,9 +40,9 @@
 
 [Dashboard.styles.ts](./containers/Dashboard/Dashboard.styles.ts)
 
-- Line 14: PLEASE clean the indentation.
+- [x] Line 14: PLEASE clean the indentation.
 
-- CSS looks quite messy but I need to go through this properly with you and the designs to understand what's happening!
+- [0] CSS looks quite messy but I need to go through this properly with you and the designs to understand what's happening!
 
 [Dashboard.tsx](./containers/Dashboard/Dashboard.tsx)
 
@@ -54,9 +54,9 @@
 
 - Line 11: OOOH someone's using axios!
 
-  - Use async/await here, I want to see how you do it.
+- Use async/await here, I want to see how you do it. ["I have"]
 
-- Line 33: Is this project about trading or tv shows? :P
+- Line 33: Is this project about trading or tv shows? :P [" I couldnt get the coin api working thats why"]
 
 [SearchBar.tsx](./components/SearchBar/SearchBar.tsx)
 
@@ -64,7 +64,7 @@
 
 [NavBar.tsx](./containers/NavBar/NavBar.tsx)
 
-- Line 10: Rename this from 'Row' to 'Nav' to be clear.
+- Line 10: Rename this from 'Row' to 'Nav' to be clear. [ "Row is using a reusable piece of code that actually sets the direction to Row or Column " ]
 
 [useData.ts](./hooks/useData.ts)
 

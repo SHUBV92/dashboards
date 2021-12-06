@@ -4,32 +4,26 @@ import axios from 'axios';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import { apiCall } from '../../api/coinapi/apiCall';
 
 const AgGrid = () => {
   const [selectedNode, setSelectedNode] = useState([]);
-  //   const [loading, data, error] = useData('https://rest.coinapi.io/v1/assets', {
-  //     method: 'GET',
-  //     headers: { 'X-CoinAPI-Key': process.env.REACT_APP_COINAPI_API_KEY },
-  //   });
+
+  const [data, setData] = useState(apiCall());
+
+  // const gridData = data?.map((asset) => {
+  //   return {
+  //     asset_id: asset.asset_id,
+  //     name: asset.name,
+  //     type_is_crypto: asset.type_is_crypto,
+  //   };
+  // });
 
   const [state, setState] = useState({
     columnDefs: [
-      {
-        headers: 'Make',
-        field: 'make',
-        sortable: true,
-        checkboxSelection: true,
-      },
-      {
-        headers: 'Model',
-        field: 'model',
-        sortable: true,
-      },
-      {
-        headers: 'Price',
-        field: 'price',
-        sortable: true,
-      },
+      { field: 'aaset_id', sortable: true, checkboxSelection: true },
+      { field: 'name', sortable: true },
+      { field: 'aaset_id', sortable: true },
     ],
     rowData: [
       { make: 'BWM', model: 'E46', price: `£4500` },
